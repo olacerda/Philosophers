@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 22:08:43 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/28 04:29:53 by olacerda         ###   ########.fr       */
+/*   Created: 2026/03/28 04:20:26 by olacerda          #+#    #+#             */
+/*   Updated: 2026/03/28 04:20:57 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "utils.h"
 
-# include "philosophers.h"
+void    put_message(int fd, char *string)
+{
+    int size;
 
-//-data_structure.c ------------------------------------------------------------
-int		end_structures(t_all *all); // Free all structures
-int		fill_structures(t_all *all); // Fill structures with different value
-t_all	*init_structures(); // Allocate and set to 0 all structures
-
-#endif
+    if ((fd < 0) || !string)
+        return ;
+    size = 0;
+    while (string[size])
+        size++;
+    write(fd, string, size);
+}

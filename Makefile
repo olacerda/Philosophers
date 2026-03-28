@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+         #
+#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 22:09:06 by otlacerd          #+#    #+#              #
-#    Updated: 2026/03/27 22:24:13 by otlacerd         ###   ########.fr        #
+#    Updated: 2026/03/28 04:22:18 by olacerda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ CHILDREN = --child-silent-after-fork=no \
 all: $(NAME)
 
 SRCS =	philosophers.c \
-		src/parsing/data_structure.c
+		src/parsing/data_structure.c \
+		utils/printc.c 
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
 
