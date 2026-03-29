@@ -1,25 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   core_execution.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 04:20:26 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/29 03:00:06 by otlacerd         ###   ########.fr       */
+/*   Created: 2026/03/29 07:25:34 by otlacerd          #+#    #+#             */
+/*   Updated: 2026/03/29 07:25:45 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "execution.h"
 
-void    put_message(int fd, char *string)
-{
-    int size;
-
-    if ((fd < 0) || !string)
-        return ;
-    size = 0;
-    while (string[size])
-        size++;
-    write(fd, string, size);
-}

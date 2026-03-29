@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
+#    By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 22:09:06 by otlacerd          #+#    #+#              #
-#    Updated: 2026/03/28 04:22:18 by olacerda         ###   ########.fr        #
+#    Updated: 2026/03/29 07:26:06 by otlacerd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,13 @@ all: $(NAME)
 
 SRCS =	philosophers.c \
 		src/parsing/data_structure.c \
-		utils/printc.c 
+		src/parsing/parsing_utils.c \
+		src/parsing/core_parsing.c \
+		src/execution/core_execution.c \
+		utils/printc.c \
+		utils/conversor.c \
+		utils/char.c \
+		utils/string.c \
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
 

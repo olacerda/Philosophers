@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   char.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 04:20:26 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/29 03:00:06 by otlacerd         ###   ########.fr       */
+/*   Created: 2026/03/29 04:01:46 by otlacerd          #+#    #+#             */
+/*   Updated: 2026/03/29 07:31:44 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void    put_message(int fd, char *string)
+int	is_numeric(char xar)
 {
-    int size;
-
-    if ((fd < 0) || !string)
-        return ;
-    size = 0;
-    while (string[size])
-        size++;
-    write(fd, string, size);
+	if (!xar)
+		return (0);
+	if (xar < '0' && xar > '9')
+		return (0);
+	return (1);
 }

@@ -1,0 +1,6 @@
+*Zone.Identifier
+.vscode
+build
+*.o
+philosophers
+output
