@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 03:34:08 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:40:03 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:50:12 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	check_all_overflow(int argc, char **argv)
 	while (line < argc)
 	{
 		if (is_overflow(argv[line], long_size_max, long_min, long_max))
-			return (0);
+			return (free(long_max), free(long_min), 0);
 		line++;
 	}
 	if (long_max)
@@ -76,9 +76,9 @@ int	core_parsing(int argc, char **argv)
 {
 	if (argc != 5 && argc != 6)
 		return (0);
-	if (!check_all_overflow(argc, argv))
-		return (0);
 	if (!check_all_numeric(argc, argv))
+		return (0);
+	if (!check_all_overflow(argc, argv))
 		return (0);
 	if (!check_all_positive(argc, argv))
 		return (0);

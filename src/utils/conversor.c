@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 03:57:37 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:07:45 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 08:01:59 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ long	ascii_to_long(char *str)
 	minus = 0;
 	if (str[i] && (str[i] == '+' || str[i] == '-'))
 	{
-		if (str[i++] == '-')
+		if (str[i] == '-')
 			minus = true;		
-	}
-	while (str[i] && str[i] == '0')
 		i++;
+	}
 	result = 0;
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
-		result = (result * 10 + (str[i++] - 48));
-	if (str[i] != '\0')
-		return (0);
+	{
+		result = (result * 10 + (str[i] - 48));
+		i++;
+	}
 	if (minus == true)
 		result = -result;
 	return (result);

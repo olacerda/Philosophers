@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 04:01:46 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:31:44 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:59:36 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_numeric(char xar)
 {
 	if (!xar)
 		return (0);
-	if (xar < '0' && xar > '9')
+	if (xar < '0' || xar > '9')
 		return (0);
 	return (1);
 }

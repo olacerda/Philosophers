@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 06:52:25 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:39:14 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:52:28 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int	string_is_numeric(char *string)
 		string++;
 	while (*string == '0')
 		string++;
+	if (!(*string))
+		return (0);
 	while (string[index])
 	{
 		if (is_numeric(string[index]) == false)
-			return (false);
+			return (0);
 		index++;
 	}
-	return (true);
+	return (1);
 }
