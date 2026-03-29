@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:08:43 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:33:28 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:38:39 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 //-data_structure.c ------------------------------------------------------------
 int		end_structures(t_phi *phi); // Free all structures
-int		fill_struct(t_phi *phi, int argc, char **argv); // Fill all structs
+int		fill_struct(t_phi *phi, char **argv); // Fill all structs
 t_phi	*init_structures(); // Allocate and set to 0 all structures
 
 //-core_parsing.c --------------------------------------------------------------

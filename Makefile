@@ -6,7 +6,7 @@
 #    By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 22:09:06 by otlacerd          #+#    #+#              #
-#    Updated: 2026/03/29 07:26:06 by otlacerd         ###   ########.fr        #
+#    Updated: 2026/03/29 07:41:15 by otlacerd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ SRCS =	philosophers.c \
 		src/parsing/parsing_utils.c \
 		src/parsing/core_parsing.c \
 		src/execution/core_execution.c \
-		utils/printc.c \
-		utils/conversor.c \
-		utils/char.c \
-		utils/string.c \
+		src/utils/print.c \
+		src/utils/conversor.c \
+		src/utils/char.c \
+		src/utils/string.c \
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
 

@@ -6,11 +6,12 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 06:52:25 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:34:01 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:39:14 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "utils.h"
 
 int	is_overflow(char *string, int max_size, char *long_min, char *long_max)
 {

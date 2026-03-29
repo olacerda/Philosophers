@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:19:01 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:28:13 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:38:46 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	end_structures(t_phi *phi)
 	return (1);
 }
 
-int	fill_struct(t_phi *phi, int argc, char **argv)
+int	fill_struct(t_phi *phi, char **argv)
 {
 	if (!phi)
 		return (put_message(STDERR_FILENO, "NULL pointer in fill_Structures\n"),

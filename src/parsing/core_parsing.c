@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 03:34:08 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:01:13 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/29 07:40:03 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ int	check_all_numeric(int argc, char **argv)
 	while (line < argc)
 	{
 		if (string_is_numeric(argv[line]) == false)
-			return (false);
+			return (0);
 		line++;
 	}
+	return (1);
 }
 
 int	check_all_positive(int argc, char **argv)
@@ -77,9 +78,9 @@ int	core_parsing(int argc, char **argv)
 		return (0);
 	if (!check_all_overflow(argc, argv))
 		return (0);
-	if (!check_all_numeric(argc, argv));
+	if (!check_all_numeric(argc, argv))
 		return (0);
-	if (!check_all_positive(argc, argv));
+	if (!check_all_positive(argc, argv))
 		return (0);
 	return (1);
 }
