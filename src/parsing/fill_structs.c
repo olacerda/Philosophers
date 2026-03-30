@@ -1,21 +1,14 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.h                                        :+:      :+:    :+:   */
+/*   fill_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 22:13:50 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/30 15:50:32 by olacerda         ###   ########.fr       */
+/*   Created: 2026/03/30 12:52:03 by olacerda          #+#    #+#             */
+/*   Updated: 2026/03/30 12:55:28 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef EXECUTION_H
-# define EXECUTION_H
+#include "parsing.h"
 
-# include "philosophers.h"
-
-//-core_execution.c ------------------------------------------------------------
-unsigned long   get_full_timeofday();
-
-#endif

@@ -1,14 +1,14 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+         #
+#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 22:09:06 by otlacerd          #+#    #+#              #
-#    Updated: 2026/03/29 07:41:15 by otlacerd         ###   ########.fr        #
+#    Updated: 2026/03/30 15:55:27 by olacerda         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 NAME = philosophers
 
@@ -30,11 +30,12 @@ CHILDREN = --child-silent-after-fork=no \
 all: $(NAME)
 
 SRCS =	philosophers.c \
-		src/parsing/data_structure.c \
-		src/parsing/parsing_utils.c \
-		src/parsing/core_parsing.c \
 		src/execution/core_execution.c \
+		src/parsing/parse.c \
+		src/parsing/data_structure.c \
+		src/parsing/data_utils.c \
 		src/utils/print.c \
+		src/utils/free.c \
 		src/utils/conversor.c \
 		src/utils/char.c \
 		src/utils/string.c \

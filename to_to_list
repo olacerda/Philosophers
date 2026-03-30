@@ -1,0 +1,31 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    to_to_list                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/03/30 08:12:01 by olacerda          #+#    #+#              #
+#    Updated: 2026/03/30 08:12:02 by olacerda         ###   ########.fr        #
+#                                                                              #
+#******************************************************************************#
+
+1-Parsing
+
+// pode receber mais de uma string por argv? ---> "8  19" (duas strings);
+// mensagens de erro no geral (erro de parsing etc);
+
+* 5 ~ 6 string in ARGV
+* characteres numéricos (+, -, numbers)
+* overflow long
+* string vazia
+
+2-Execução
+
+* Criação das structs
+* Dinamica de 1 filósofo comer e morrer conforme os argvs
+* Dinamica de vários filósofos comer e morrer conforme argvs
+
+
+DATA DE ENTREGA 03/04/2026
+days left 4

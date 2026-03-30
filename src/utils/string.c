@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   string.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 05:47:05 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 06:44:06 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/30 10:33:56 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "utils.h"
 
@@ -17,7 +17,7 @@ int	string_compare(char *str1, char *str2)
 	int	index;
 
 	if (!str1 || !str2)
-		return (-1);
+		return (0);
 	index = 0;
 	while (str1[index] && str2[index] && (str1[index] == str2[index]))
 		index++;
@@ -34,6 +34,21 @@ int	string_length(char *string)
 	while (string[size])
 		size++;
 	return (size);
+}
+
+int	memory_zero(void *pointer, long size)
+{
+	int	index;
+
+	if (!pointer || size <= 0)
+		return (0);
+	index = 0;
+	while (index < size)
+	{
+		((char *)pointer)[index] = 0;
+		index++;
+	}
+	return (1);
 }
 
 // int	main(void)

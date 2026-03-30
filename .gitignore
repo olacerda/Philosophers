@@ -1,5 +1,4 @@
 *Zone.Identifier
-.vscode
 build
 *.o
 philosophers

@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 21:58:24 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/29 07:22:44 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/03/30 15:56:11 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
@@ -20,12 +20,10 @@
 # include <string.h>
 # include <sys/time.h>
 # include <stdbool.h>
+# include <pthread.h>
+# include <sys/time.h>
+# include <errno.h>
 
-// # define PHILO_COUNT 1
-// # define DIE_TIME 2
-// # define EAT_TIME 3
-// # define SLEEP_TIME 4
-// # define EAT_COUNT 5
 # define FAIL -1
 
 typedef enum s_args
@@ -37,13 +35,39 @@ typedef enum s_args
 	EAT_COUNT = 5,
 }			t_args;
 
-typedef struct s_phi
+typedef struct timeval t_time;
+
+typedef struct s_params
 {
-	long	philo_count;
-	long	eat_count;
-	long	death_time;
-	long	eat_time;
-	long	sleep_time;
-}			t_phi;
+	long			philo_count;
+	long			death_time;
+	long			eat_time;
+	long			sleep_time;
+	long			eat_count;
+}			t_params;
+
+typedef struct s_philo
+{
+	int				alive;
+	int				eating;
+	int				sleeping;
+	int				thinking;
+	int				forks_holding;
+}			t_philo;
+
+typedef struct s_info
+{
+	t_philo			*philo; // [0] == philos_size philo, [1] == first philo, etc etc
+	int				*fork;
+	unsigned long 	initial_time;
+	pthread_t	*thread;
+}			t_info;
+
+typedef struct s_all
+{
+	t_params		*param;
+	t_info			*info;
+	unsigned long	initial_time;
+}			t_all;
 
 #endif
