@@ -6,7 +6,7 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 12:53:07 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/30 15:40:22 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/03/31 06:55:19 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -42,7 +42,7 @@ int	end_structures(char *error_message, int status)
 	return (1);
 }
 
-t_all	*init_structures()
+t_all	*init_structs()
 {
 	t_all *all;
 
@@ -56,7 +56,7 @@ t_all	*init_structures()
 	all->info = malloc(sizeof(t_info));
 	if (!all->info)
 		return (end_structures(
-			"Failed 'info' allocation in init_structures", 1), NULL);
+			"Failed 'info' allocation in init_structs", 1), NULL);
 	*all->info = (t_info){0};
 	all->param = malloc(sizeof(t_params));
 	if (!all->param)

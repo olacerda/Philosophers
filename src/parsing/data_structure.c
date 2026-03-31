@@ -6,7 +6,7 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:19:01 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/30 16:02:02 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:40:33 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -41,7 +41,7 @@ int create_arrays(t_info *inf, int philo_nb)
 {
     if (!inf)
         return (0);
-    inf->fork = malloc(philo_nb * sizeof(int));
+    inf->fork = malloc(philo_nb * sizeof(pthread_mutex_t));
     if (!inf->fork || !memory_zero(inf->fork, (philo_nb * sizeof(int))))
         return (0);
     inf->philo = malloc(philo_nb * sizeof(int));
@@ -53,6 +53,23 @@ int create_arrays(t_info *inf, int philo_nb)
     return (1);
 }
 
+int	initiate_philos(t_philo *philo, int	philo_count)
+{
+	int	index;
+	
+	if (!philo || philo_count <= 0)
+		return (0);
+	index = 0;
+	while (index < philo_count)
+	{
+		philo[index].alive = true;
+		philo[index].right_hand = (index + 1) % philo_count;
+		philo[index].left_hand = index;
+		index++;
+	}
+	return (1);
+}
+
 int	fill_structs(t_all *all, char **argv)
 {
 	if (!all || !all->param || !all->info || !argv)
@@ -62,6 +79,8 @@ int	fill_structs(t_all *all, char **argv)
 			return (end_structures("Failed convert_argv.. fill_structs", 1), 0);
 	if (!create_arrays(all->info, all->param->philo_count))
 			return (end_structures("Failed create_arrays fill_Struct", 1), 0);
+	if (!initiate_philos(all->info->philo, all->param->philo_count))
+			return (end_structures("Failed initiate_philos fill_Struct", 1), 0);
 	all->initial_time = get_full_timeofday();
 	return (1);
 }

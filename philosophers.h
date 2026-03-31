@@ -6,7 +6,7 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 21:58:24 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/30 15:56:11 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:09:52 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -52,13 +52,14 @@ typedef struct s_philo
 	int				eating;
 	int				sleeping;
 	int				thinking;
-	int				forks_holding;
+	int				right_hand;
+	int				left_hand;
 }			t_philo;
 
 typedef struct s_info
 {
 	t_philo			*philo; // [0] == philos_size philo, [1] == first philo, etc etc
-	int				*fork;
+	pthread_mutex_t	*fork;
 	unsigned long 	initial_time;
 	pthread_t	*thread;
 }			t_info;

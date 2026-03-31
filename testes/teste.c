@@ -1,30 +1,19 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   teste.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/30 03:58:38 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/31 10:08:45 by olacerda         ###   ########.fr       */
+/*   Created: 2026/03/31 11:41:54 by olacerda          #+#    #+#             */
+/*   Updated: 2026/03/31 11:42:23 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "execution.h"
-#include "parsing.h"
-#include "utils.h"
+#include <stdio.h>
 
-int init_all_forks(pthread_mutex_t *forks, int size)
+int main(void)
 {
-    int index;
-    
-    if (!forks || size <= 0)
-        return (0);
-    index = 0;
-    while (index < size)
-    {
-        pthread_mutex_init(&(forks[index]), NULL);
-        index++;
-    }
+    dprintf(2, "isso e um teste\n");
     return (1);
 }

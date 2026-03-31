@@ -6,11 +6,12 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 21:58:30 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/30 16:01:47 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/03/31 10:03:58 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "philosophers.h"
+#include "execution.h"
 #include "parsing.h"
 #include "utils.h"
 
@@ -20,13 +21,12 @@ int	main(int argc, char *argv[])
 
 	(void)argc;
 	(void)argv;
-	all = init_structures();
+	all = init_structs();
 	if (!parse(argc, argv))
 		return (end_structures("Error parse", 1), 1);
 	if (!fill_structs(all, argv))
 		return (end_structures("Error fill_structures", 1), 1);
 	put_number(all->initial_time);
-	write(1, "\n", 1);
 	dprintf(2, "philo_count: %li\n", all->param->philo_count);
 	return (end_structures(NULL, 0), 0);
 }

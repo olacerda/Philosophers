@@ -6,7 +6,7 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:08:43 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/30 15:58:44 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/03/31 11:37:41 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -19,9 +19,10 @@
 int     fill_structs(t_all *all, char **argv);//Fill structs
 int     convert_argv_to_long(t_params *param, char **argv);//Convert strings 
 int     create_arrays(t_info *inf, int philo_nb);//Create 'info' arrays
+int     initiate_philos(t_philo *philo, int	philo_count);
 
 //-data_structure_utils.c ------------------------------------------------------
-t_all	*init_structures(); // Allocate and set to 0 all structures
+t_all	*init_structs(); // Allocate and set to 0 all structures
 int		end_structures(char *error_message, int status); // Free all
 t_all	*get_all_adress(t_all *original_all); // To have global reference of all
 

@@ -1,14 +1,14 @@
-#******************************************************************************#
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    to_to_list                                         :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/03/30 08:12:01 by olacerda          #+#    #+#              #
-#    Updated: 2026/03/30 08:12:02 by olacerda         ###   ########.fr        #
-#                                                                              #
-#******************************************************************************#
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   to_to_list                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/30 08:12:01 by olacerda          #+#    #+#             */
+/*   Updated: 2026/03/31 10:53:07 by olacerda         ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
 
 1-Parsing
 
@@ -25,6 +25,8 @@
 * Criação das structs
 * Dinamica de 1 filósofo comer e morrer conforme os argvs
 * Dinamica de vários filósofos comer e morrer conforme argvs
+
+* Método de atualização dos logs. (Ao mudar informação.... como printar isso (condição))
 
 
 DATA DE ENTREGA 03/04/2026
