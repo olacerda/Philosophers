@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 04:20:26 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/30 16:05:20 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/01 02:33:28 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "utils.h"
 
@@ -24,6 +24,27 @@ void    put_message(int fd, char *string, int break_line)
     write(fd, string, size);
     if (break_line)
         write(fd, "\n", 1);
+}
+
+int print_log(long phi_number, t_states state, unsigned long start)
+{
+	unsigned long timestamp;
+	const char *logs[] = {
+		"has taken a fork",
+			"is eating",
+				"is sleeping",
+					"is thinking",
+						"died", NULL};
+
+	if (phi_number <= 0)
+		return (0);
+	timestamp = get_full_timeofday() - start;
+	put_number(timestamp);
+	write(1, " ", 1);
+	put_number(phi_number);
+	write(1, " ", 1);
+	put_message(STDOUT_FILENO, (char *)(logs[state]), true);
+	return (1);	
 }
 
 char *translate_errno(int erro)

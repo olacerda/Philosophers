@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
+#    By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 22:09:06 by otlacerd          #+#    #+#              #
-#    Updated: 2026/03/31 10:09:45 by olacerda         ###   ########.fr        #
+#    Updated: 2026/04/01 02:29:52 by otlacerd         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME = philosophers
 
@@ -31,14 +31,13 @@ all: $(NAME)
 
 SRCS =	philosophers.c \
 		src/execution/core_execution.c \
-		src/execution/init_data.c \
+		src/execution/philo_actions.c \
 		src/parsing/parse.c \
 		src/parsing/data_structure.c \
-		src/parsing/data_utils.c \
 		src/utils/print.c \
-		src/utils/free.c \
 		src/utils/conversor.c \
-		src/utils/char.c \
+		src/utils/data.c \
+		src/utils/time.c \
 		src/utils/string.c \
 
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))

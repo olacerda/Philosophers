@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_utils.c                                       :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/30 12:53:07 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/31 06:55:19 by olacerda         ###   ########.fr       */
+/*   Created: 2026/04/01 02:19:37 by otlacerd          #+#    #+#             */
+/*   Updated: 2026/04/01 02:21:10 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "parsing.h"
 #include "utils.h"
@@ -33,8 +33,12 @@ int	end_structures(char *error_message, int status)
 		return (all = get_all_adress(NULL), 0);
 	if (all->param)
 		free(all->param);
-	if (all->info)
-		free(all->info);
+	if (all->forks)
+		free(all->forks);
+	if (all->threads)
+		free(all->threads);
+	if (all->philos)
+		free(all->philos);
 	free(all);
 	if (error_message)
 		put_message(STDERR_FILENO, error_message, true);
@@ -53,11 +57,6 @@ t_all	*init_structs()
 	*all = (t_all){0};
 	get_all_adress(all);
 	end_structures(NULL, 0);
-	all->info = malloc(sizeof(t_info));
-	if (!all->info)
-		return (end_structures(
-			"Failed 'info' allocation in init_structs", 1), NULL);
-	*all->info = (t_info){0};
 	all->param = malloc(sizeof(t_params));
 	if (!all->param)
 			return (end_structures(

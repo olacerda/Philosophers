@@ -1,30 +1,25 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:08:43 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/31 11:37:41 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/01 04:38:07 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-# include "philosophers.h"
+# include "utils.h"
 
 //-data_structure.c ------------------------------------------------------------
 int     fill_structs(t_all *all, char **argv);//Fill structs
-int     convert_argv_to_long(t_params *param, char **argv);//Convert strings 
-int     create_arrays(t_info *inf, int philo_nb);//Create 'info' arrays
-int     initiate_philos(t_philo *philo, int	philo_count);
-
-//-data_structure_utils.c ------------------------------------------------------
-t_all	*init_structs(); // Allocate and set to 0 all structures
-int		end_structures(char *error_message, int status); // Free all
-t_all	*get_all_adress(t_all *original_all); // To have global reference of all
+int     convert_argv_to_long(t_params *param, char **argv, UL start_time);//Convert strings 
+int     create_arrays(t_all *all, int philo_nb);//Create 'info' arrays
+int     initiate_philos(t_philo *philos, t_params *param, t_mutex *check_stop, int *stop);
 
 //-parse.c --------------------------------------------------------------
 int		parse(int argc, char **argv); // Do all the parsing.

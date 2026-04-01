@@ -1,17 +1,16 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 03:34:08 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/03/30 15:57:55 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/01 02:22:51 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "parsing.h"
-#include "utils.h"
 
 int	is_overflow(char *string, int max_size, char *long_min, char *long_max)
 {
@@ -44,8 +43,6 @@ int	string_is_numeric(char *string)
 		string++;
 	while (*string == '0')
 		string++;
-	if (!(*string))
-		return (0);
 	while (string[index])
 	{
 		if (is_numeric(string[index]) == false)
@@ -70,12 +67,12 @@ int	parse(int argc, char **argv)
 	long_size_max = string_length(long_min);
 	line = 1;
 	while (line < argc)
-	{
+	{ // --------------------------------------- Tem um "certo" limite de 200 philosofos? olhar depois
 		if (!string_is_numeric(argv[line]))
 			return (free(long_max), free(long_min), 0);
 		if (is_overflow(argv[line], long_size_max, long_min, long_max) > 0)
 			return (free(long_max), free(long_min), 0);
-		if (!argv[line] || !argv[line][0] || (argv[line][0] == '-')) // checar se alguma pode ser "" (\0, vazia)
+		if (!argv[line] || !argv[line][0] || (argv[line][0] == '-'))
 			return (free(long_max), free(long_min), 0);
 		line++;
 	}

@@ -1,33 +1,38 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   to_to_list                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 08:12:01 by olacerda          #+#    #+#             */
-/*   Updated: 2026/03/31 10:53:07 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/01 04:44:05 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 1-Parsing
 
-// pode receber mais de uma string por argv? ---> "8  19" (duas strings);
-// mensagens de erro no geral (erro de parsing etc);
+// limite de 200 filosofos?
 
-* 5 ~ 6 string in ARGV
-* characteres numéricos (+, -, numbers)
-* overflow long
-* string vazia
+// Implementar um calculo continuo (sem mutex) porentre os mini-sleeps das thread,
+// 		pra verificar SE ELAS PROPRIAS ja morreram ou nao
+// // (fazer mutex EXATAMENTE nessa hora, assim, maximizando eficiencia);
+
+//adicionar o criterio argv 6 no sentinel (nao so "qndo alguem morrer")
+      // adicionar mutex check e variavel so pra isso
+
+// descobrir como 
+
+* 5 ~ 6 string in ARGV // implementar ainda o "6"
 
 2-Execução
 
-* Criação das structs
 * Dinamica de 1 filósofo comer e morrer conforme os argvs
 * Dinamica de vários filósofos comer e morrer conforme argvs
 
-* Método de atualização dos logs. (Ao mudar informação.... como printar isso (condição))
-
+* Edge case com "1 filosofo" (ele TEM que morrer)
+* Criar um "monitoring" threads, pra verificar quem ja morreu ou nao. (e argv 6)
+* Situacao onde algum dos argumentos e 0 ...
 
 DATA DE ENTREGA 03/04/2026
 days left 4
