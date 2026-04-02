@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   to_to_list                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/30 08:12:01 by olacerda          #+#    #+#             */
+/*   Updated: 2026/04/02 23:12:10 by otlacerd         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+1-Parsing
+
+// limite de 200 filosofos?
+
+// Implementar um calculo continuo (sem mutex) porentre os mini-sleeps das thread,
+// 		pra verificar SE ELAS PROPRIAS ja morreram ou nao
+// // (fazer mutex EXATAMENTE nessa hora, assim, maximizando eficiencia);
+
+//adicionar o criterio argv 6 no sentinel (nao so "qndo alguem morrer")
+      // adicionar mutex check e variavel so pra isso
+
+// descobrir como 
+
+// Criar thread só pra logs, ou, sentinel atualiza os logs
+
+//remover "void *arg" de safex/exec (executor de func_pointer)
+
+// 3 800 200 200 teste basicao
+
+// 5 800 200 200 teste
+// 3 599 200 200 teste
+
+* 5 ~ 6 string in ARGV // implementar ainda o "6"
+
+2-Execução
+
+* Dinamica de 1 filósofo comer e morrer conforme os argvs
+* Dinamica de vários filósofos comer e morrer conforme argvs
+
+* Edge case com "1 filosofo" (ele TEM que morrer)
+* Criar um "monitoring" threads, pra verificar quem ja morreu ou nao. (e argv 6)
+* Situacao onde algum dos argumentos e 0 ...
+
+DATA DE ENTREGA 03/04/2026
+days left 1
