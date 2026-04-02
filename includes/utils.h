@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 04:15:06 by olacerda          #+#    #+#             */
-/*   Updated: 2026/04/01 02:34:06 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/02 14:09:00 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef UTILS_H
 # define UTILS_H
@@ -19,7 +19,6 @@
 void    put_message(int fd, char *string, int break_line);//Choose FD to message
 void    put_number(long number);
 char    *translate_errno(int erro);
-int		print_log(long phi_number, t_states state, unsigned long start);
 
 //-char.c ----------------------------------------------------------------------
 int		is_numeric(char xar); // Verify if all char's are numeric

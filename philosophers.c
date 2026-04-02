@@ -1,53 +1,19 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 21:58:30 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/01 04:19:42 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/02 09:38:37 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "philosophers.h"
 #include "execution.h"
 #include "parsing.h"
 #include "utils.h"
-
-void	*sentinel_routine(void *arg)
-{
-	t_all	*all;
-	t_philo *philos;
-	int		stop;
-	int		index;
-
-	if (!arg)
-		return (NULL);
-	all = (t_all *)arg;
-	philos = all->philos;
-	while (!stop)
-	{
-		index = 0;
-		while (index < all->param->philo_count)
-		{
-			pthread_mutex_lock(&philos[index].check_alive);
-			if (!philos[index].is_alive)
-			{
-				pthread_mutex_lock(&(all->stop))
-				
-			}
-			index++;
-		}
-	}
-}
-
-int	init_sentinel(t_philo *philos)
-{
-	pthread_t sentinel;
-
-	pthread_create(sentinel, NULL, sentinel_routine, philos);
-}
 
 int	main(int argc, char *argv[])
 {
@@ -55,11 +21,17 @@ int	main(int argc, char *argv[])
 
 	(void)argc;
 	(void)argv;
+	UL curret_time = get_full_timeofday();
 	all = init_structs();
 	if (!parse(argc, argv))
 		return (end_structures("Error parse", 1), 1);
 	if (!fill_structs(all, argv))
 		return (end_structures("Error fill_structures", 1), 1);
+	
+	init_mutexes(all->forks, all->check_stop, all->philos, all->param->philo_count);
+	threads_execution(all);
+	destroy_mutexes(all->forks, all->param->philo_count, all->check_stop, all->philos);
+	
 	int index = 0;
 	while (index < all->param->philo_count)
 	{
@@ -67,6 +39,7 @@ int	main(int argc, char *argv[])
 		dprintf(2, "philos: %d right: %d left: %d\n\n", index, all->philos[index].right_hand, all->philos[index].left_hand);
 		index++;
 	}
-	dprintf(2, "start_time: %li\n", all->philos[0].start_time);
+	dprintf(2, "first line time: %li\n", curret_time);
+	dprintf(2, "last line time: %li\n", get_full_timeofday() - curret_time);
 	return (end_structures(NULL, 0), 0);
 }

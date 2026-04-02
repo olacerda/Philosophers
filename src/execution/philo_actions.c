@@ -1,22 +1,24 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 01:57:56 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/01 04:13:38 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/02 15:16:20 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "execution.h"
 
-int philo_sleep(unsigned long time_to_awake)
+int philo_sleep(UL sleep_time, t_philo *philo)
 {
-	if (time_to_awake <= 0)
+	if (sleep_time <= 0)
 		return (0);
-	sleep_until(time_to_awake);
+	philo->time_to_awake = get_full_timeofday() + sleep_time;
+	safe(philo->check_message, philo, NULL, print_log);
+	sleep_until(philo->time_to_awake);
     return (1);
 }
 
@@ -33,37 +35,28 @@ int	philo_take_forks(t_mutex *forks, t_philo *philo)
 {
 	if (!forks || !philo)
 		return (0);
-	pthread_mutex_lock(&(forks[philo->right_hand]));
-	print_log(philo->id, TAKEN_FORK, philo->start_time);
-	pthread_mutex_lock(&(forks[philo->left_hand]));
-	print_log(philo->id, TAKEN_FORK, philo->start_time);
+	pthread_mutex_lock(&(philo->right_hand));
+	safe(philo, philo->check_message, &(t_log){TAKEN_FORK}, print_log);
+	pthread_mutex_lock(&(philo->left_hand));
+	safe(philo, philo->check_message, &(t_log){TAKEN_FORK}, print_log);
 	return (1);
 }
 
 int philo_eat(t_mutex *forks, t_philo *philo)
 {
-    unsigned long time_to_awake;
-
     if (!forks || !philo)
         return (0);
-    pthread_mutex_lock(&(forks[philo->right_hand]));
-	print_log(philo->id, TAKEN_FORK, philo->start_time);
-    pthread_mutex_lock(&(forks[philo->left_hand]));
-	print_log(philo->id, TAKEN_FORK, philo->start_time);
-	print_log(philo->id, IS_EATING, philo->start_time);
-	philo->last_meal = get_full_timeofday();
-	time_to_awake = philo->last_meal + philo->eat_time;
-	sleep_until(time_to_awake);
+	safe(philo->check_meal, philo->all, NULL, last_meal);
+	safe(philo, philo->check_message, &(t_log){IS_EATING}, print_log);
+	sleep_until(philo->time_to_awake);
     return (1);
 }
 
-int	philo_have_to_stop(t_mutex *check_stop, int stop)
+int	philo_think(UL sleep_time)
 {
-	if (!check_stop)
+	if (sleep_time < 0)
 		return (0);
-	pthread_mutex_lock(check_stop);
-	if (stop == true)
-		return (1);
-	pthread_mutex_unlock(check_stop);	
-	return (0);
+	sleep_until(get_full_timeofday() + sleep_time);
+	return (1);
 }
+

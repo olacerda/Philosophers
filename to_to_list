@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   to_to_list                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 08:12:01 by olacerda          #+#    #+#             */
-/*   Updated: 2026/04/01 04:44:05 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/02 15:14:31 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 1-Parsing
 
@@ -23,6 +23,10 @@
 
 // descobrir como 
 
+// Criar thread só pra logs, ou, sentinel atualiza os logs
+
+//remover "void *arg" de safe/exec (executor de func_pointer)
+
 * 5 ~ 6 string in ARGV // implementar ainda o "6"
 
 2-Execução
@@ -35,4 +39,4 @@
 * Situacao onde algum dos argumentos e 0 ...
 
 DATA DE ENTREGA 03/04/2026
-days left 4
+days left 1
