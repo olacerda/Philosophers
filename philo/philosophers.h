@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 21:58:24 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/03 00:34:38 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/04 10:59:46 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
@@ -31,15 +31,6 @@ typedef struct timeval t_time;
 typedef pthread_mutex_t t_mutex;
 typedef pthread_t		t_thread;
 
-typedef enum	s_log
-{
-	TAKEN_FORK,
-	IS_EATING,
-	IS_SLEEPING,
-	IS_THINKING,
-	DIED
-}				t_log;
-
 typedef enum s_arg
 {
 	PHILO_COUNT = 1,
@@ -51,13 +42,13 @@ typedef enum s_arg
 
 typedef struct s_params
 {
-	UL		philo_count;
-	UL		death_time;
-	UL		eat_time;
-	UL		sleep_time;
-	long	eat_count;
-	UL		start_time;
-}			t_params;
+	UL				philo_count;
+	UL				death_time;
+	UL				eat_time;
+	UL				sleep_time;
+	long			eat_count;
+	UL				start_time;
+}					t_params;
 
 
 typedef struct s_philo
@@ -69,10 +60,8 @@ typedef struct s_philo
 	UL				time_to_awake;
 	t_mutex			*right_hand;
 	t_mutex			*left_hand;
-	t_log			*message;
-	t_mutex			check_message;
 	struct s_all	*all;
-}				t_philo;
+}					t_philo;
 
 typedef struct s_all
 {
@@ -82,7 +71,8 @@ typedef struct s_all
 	t_thread		*threads;
 	t_params		*param;
 	t_mutex			check_stop;
+	t_mutex			check_message;
 	int				stop;
-}				t_all;
+}					t_all;
 
 #endif

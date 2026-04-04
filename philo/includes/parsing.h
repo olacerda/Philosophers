@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:08:43 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/02 21:57:24 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/04 06:03:20 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PARSING_H
 # define PARSING_H
@@ -18,7 +18,7 @@
 //-data_structure.c ------------------------------------------------------------
 int     fill_structs(t_all *all, int argc, char **argv);//Fill structs
 int     convert_argv_to_long(t_params *param, int argc, char **argv, UL start_time);//Convert strings 
-int     create_arrays(t_all *all, int philo_nb);//Create 'info' arrays
+int     create_arrays(t_all *all, UL philo_nb);//Create 'info' arrays
 int     initiate_philos(t_philo *philos, t_params *param, t_mutex *forks, t_all *all);
 
 //-parse.c --------------------------------------------------------------

@@ -1,14 +1,14 @@
-# **************************************************************************** #
+#******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+         #
+#    By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/27 22:09:06 by otlacerd          #+#    #+#              #
-#    Updated: 2026/04/02 23:03:08 by otlacerd         ###   ########.fr        #
+#    Updated: 2026/04/04 11:50:30 by olacerda         ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
+#******************************************************************************#
 
 NAME = philosophers
 
@@ -31,9 +31,10 @@ all: $(NAME)
 
 SRCS =	philosophers.c \
 		src/execution/core_execution.c \
-		src/execution/execution_utils.c \
+		src/execution/resource_management.c \
 		src/execution/philo_actions.c \
 		src/execution/safex_actions.c \
+		src/execution/safex_utils.c \
 		src/parsing/parse.c \
 		src/parsing/data_structure.c \
 		src/utils/print.c \

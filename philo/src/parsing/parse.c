@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 03:34:08 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/02 23:47:47 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/04 07:36:26 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "parsing.h"
 
@@ -69,7 +69,7 @@ int	parse(int argc, char **argv)
 	long_size_max = string_length(long_min);
 	line = 1;
 	while (line < argc)
-	{ // --------------------------------------- Tem um "certo" limite de 200 philosofos? olhar depois
+	{
 		if (!string_is_numeric(argv[line]))
 			return (free(long_max), free(long_min), 0);
 		if (is_overflow(argv[line], long_size_max, long_min, long_max) > 0)
