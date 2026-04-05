@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   safex_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 07:48:50 by olacerda          #+#    #+#             */
-/*   Updated: 2026/04/04 11:42:36 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/05 03:43:13 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "execution.h"
 
@@ -32,7 +32,10 @@ int	have_to_stop(t_philo *philo, char *log)
 		return (0);
 	(void)log;
 	if (philo->all->stop == true)
+	{
+		//dprintf(2, "have to stop\n");
 		return (1);
+	}
 	return (0);
 }
 
@@ -42,7 +45,10 @@ int is_dead(t_philo *philo, char *log)
 		return (FAIL);
 	(void)log;
 	if ((get_full_timeofday() - philo->last_meal) >= philo->all->param->death_time)
+	{
+		// safex(&(philo->all->check_message), philo, "died", print_log);
 		return (1);
+	}
 	return (0);
 }
 
@@ -53,6 +59,7 @@ int	last_meal(t_philo *philo, char *log)
 	(void)log;
 	if (philo->last_meal)
 	philo->meal_count++;
+	//dprintf(2, "meal_count: %li\n", philo->meal_count);
 	philo->last_meal = get_full_timeofday();
 	philo->time_to_awake = (philo->last_meal + philo->all->param->eat_time);
 	return (philo->last_meal);
@@ -62,7 +69,8 @@ int print_log(t_philo *philo, char *string)
 {
 	unsigned long timestamp;
 
-	if (!philo || !string)
+	if (!philo || !string
+		|| safex(&(philo->all->check_stop), philo, NULL, have_to_stop))
 		return (0);
 	timestamp = get_full_timeofday() - philo->all->param->start_time;
 	put_number(timestamp);

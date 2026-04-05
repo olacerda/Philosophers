@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   data_structure.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:19:01 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 11:33:49 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/04 21:09:31 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "parsing.h"
 #include "execution.h"
@@ -29,7 +29,7 @@ int	convert_argv_to_long(t_params *param, int argc, char **argv, UL start_time)
 	param->start_time = start_time;
 	if (!param->philo_count || !param->death_time
 		|| !param->eat_time || !param->sleep_time
-		|| !param->eat_count || param->start_time < 0)
+		|| !param->eat_count)
 		return (0);
 	if (param->philo_count > 200)
 		return (put_message(STDERR_FILENO, "Philo_count > 200... ", true), 0);

@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 01:57:56 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 11:56:11 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/05 00:59:25 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "execution.h"
 
@@ -36,14 +36,14 @@ int	philo_take_forks(t_mutex *forks, t_philo *philo, t_all *all)
 	if (!forks || !philo || safex(&(all->check_stop), philo, NULL, have_to_stop))
 		return (0);
 	pthread_mutex_lock(philo->right_hand);
-	safex(&(all->check_message), philo, "taken fork", print_log);
+	safex(&(all->check_message), philo, "has taken a fork", print_log);
 	if (safex(&(all->check_stop), philo, NULL, have_to_stop))
 	{
 		pthread_mutex_unlock(philo->right_hand);
 		return (0);
 	}
 	pthread_mutex_lock(philo->left_hand);
-	safex(&(all->check_message), philo, "taken fork", print_log);
+	safex(&(all->check_message), philo, "has taken a fork", print_log);
 	if (safex(&(all->check_stop), philo, NULL, have_to_stop))
 	{
 		pthread_mutex_unlock(philo->left_hand);

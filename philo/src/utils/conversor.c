@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 03:57:37 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/02 23:34:03 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/05 02:38:33 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,16 @@ char *long_to_ascii(UL number)
 // 	long result;
 
 // 	result = ascii_to_long(string);
-// 	dprintf(2, "result: %li\n", result);
+// 	//dprintf(2, "result: %li\n", result);
 // }
 
 // // long_to_ascii ------------------------------------------------------------
 // int	main(void)
 // {
-// 	// dprintf(2, "teste: %d\n", -(-15 % 10));
+// 	// //dprintf(2, "teste: %d\n", -(-15 % 10));
 // 	char *result;
 // 	long	number = -9223372036854775808;
 // 	// long	number = -12;
 // 	result = long_to_ascii(number);
-// 	dprintf(2, "result: %s\n", result);
+// 	//dprintf(2, "result: %s\n", result);
 // }

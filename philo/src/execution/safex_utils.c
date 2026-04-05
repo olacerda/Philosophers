@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   safex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 11:24:18 by olacerda          #+#    #+#             */
-/*   Updated: 2026/04/04 12:32:28 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/05 02:38:33 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "execution.h"
 
@@ -27,7 +27,10 @@ int	eat_enough(t_philo *philo, char *log)
 		return (0);
 	(void)log;
 	if (philo->meal_count >= philo->all->param->eat_count)
+	{
+		// //dprintf(2, "---> eat_enough:\n meal_count: %lu    eat_count: %li\n", philo->meal_count, philo->all->param->eat_count);
 		return (1);
+	}
 	return (0);
 }
 

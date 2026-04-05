@@ -6,7 +6,7 @@
 /*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/29 05:47:05 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/01 02:28:13 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/05 02:38:33 by otlacerd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ int	is_numeric(char xar)
 // 	char *string1 = "Ai";
 // 	char *string2 = "Ai tudo bem";
 
-// 	dprintf(2, "result: %d\n", string_compare(string1, string2));
+// 	//dprintf(2, "result: %d\n", string_compare(string1, string2));
 // }

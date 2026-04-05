@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   resource_management.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
+/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:30:40 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 12:00:42 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/04 21:18:28 by otlacerd         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "execution.h"
 
@@ -53,7 +53,7 @@ int init_mutexes(t_mutex *forks, t_all *all, t_philo *philos, int size)
     return (1);
 }
 
-int	destroy_threads(t_thread *threads, UL *count, int philo_count)
+int	wait_threads(t_thread *threads, UL *count, int philo_count)
 {
 	UL	index;
 
