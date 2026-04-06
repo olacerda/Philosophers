@@ -46,6 +46,14 @@
         "showReuseMessage": false
       },
       "problemMatcher": []
+    },
+    {      
+      "label": "Open Project Main File",
+      "type": "shell",
+      "command": "code",
+      "args": [
+        "${workspaceFolder}/${workspaceFolderBasename}.c"
+      ]
     }
   ]
 }

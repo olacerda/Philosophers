@@ -6,7 +6,7 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 21:58:24 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 10:59:46 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/06 13:01:45 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -58,6 +58,7 @@ typedef struct s_philo
 	long			meal_count;
 	t_mutex			check_meal;
 	UL				time_to_awake;
+	UL				think_time;
 	t_mutex			*right_hand;
 	t_mutex			*left_hand;
 	struct s_all	*all;
@@ -65,13 +66,11 @@ typedef struct s_philo
 
 typedef struct s_all
 {
-	int				argc;
 	t_philo			*philos;
 	t_mutex			*forks;
 	t_thread		*threads;
 	t_params		*param;
 	t_mutex			check_stop;
-	t_mutex			check_message;
 	int				stop;
 }					t_all;
 

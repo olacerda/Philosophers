@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   safex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 11:24:18 by olacerda          #+#    #+#             */
-/*   Updated: 2026/04/05 02:38:33 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/06 09:37:10 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "execution.h"
 
@@ -51,13 +51,18 @@ unsigned long   get_full_timeofday()
 
 int sleep_until(UL time, t_all *all, t_philo *philo)
 {
-	if (time <= 0 || safex(&(all->check_stop), philo, NULL, have_to_stop))
+	unsigned long mini_sleep;
+
+	if (time <= 0 || safex(&(all->check_stop), philo, "is eating", have_to_stop))
 		return (0);
+	mini_sleep = 500;
+	if (time < mini_sleep)
+		mini_sleep = (time / 2);
 	while (get_full_timeofday() < time)
 	{
-		usleep(500);
+		usleep(mini_sleep);
 		if (safex(&(all->check_stop), philo, NULL, have_to_stop))
-			break ;
+			return (0);
 	}
 	return (1);
 }

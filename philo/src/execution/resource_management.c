@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   resource_management.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/02 21:30:40 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 21:18:28 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:13:58 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "execution.h"
 
@@ -40,8 +40,8 @@ int init_mutexes(t_mutex *forks, t_all *all, t_philo *philos, int size)
     index = 0;
 	problem = 0;
 	problem += pthread_mutex_init(&(all->check_stop), NULL);
-	if (!problem)
-		problem += pthread_mutex_init(&(all->check_message), NULL);
+	// if (!problem)
+	// 	problem += pthread_mutex_init(&(all->check_message), NULL);
     while (!problem && index < size)
     {
         problem += pthread_mutex_init(&(forks[index]), NULL);
@@ -77,7 +77,7 @@ int	destroy_mutexes(t_mutex *forks, long size, t_all *all, t_philo *philos)
 		return (0);
 	index = 0;
 	pthread_mutex_destroy(&(all->check_stop));
-	pthread_mutex_destroy(&(all->check_message));
+	// pthread_mutex_destroy(&(all->check_message));
 	while (index < size)
 	{
 		pthread_mutex_destroy(&(philos[index].check_meal));

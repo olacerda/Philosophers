@@ -1,19 +1,19 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   data_structure.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otlacerd <otlacerd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:19:01 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 21:09:31 by otlacerd         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:16:13 by olacerda         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "parsing.h"
 #include "execution.h"
 
-int	convert_argv_to_long(t_params *param, int argc, char **argv, UL start_time)
+int	set_params_from_argv(t_params *param, int argc, char **argv, UL start_time)
 {
 	if (!param || !argv || argc <= 0)
 		return (put_message(STDERR_FILENO,
@@ -52,6 +52,18 @@ int create_arrays(t_all *all, UL philo_nb)
     return (1);
 }
 
+unsigned long	set_think_time(t_params *param)
+{
+	UL	limit;
+	
+	if (!param)
+		return (0);
+	limit = param->death_time - (param->eat_time + param->sleep_time);
+	if (param->death_time < (param->eat_time + param->sleep_time))
+		return (0);
+	return (limit / 2);
+}
+
 int	initiate_philos(t_philo *philos, t_params *param, t_mutex *forks, t_all *all)
 {
 	UL	index;
@@ -61,20 +73,21 @@ int	initiate_philos(t_philo *philos, t_params *param, t_mutex *forks, t_all *all
 		return (0);
 	last_meal = get_full_timeofday();
 	index = 0;
-	while (index < (param->philo_count - 1))
+	while (index < param->philo_count)
 	{
 		philos[index].id = (index + 1);
 		philos[index].last_meal = last_meal;
+		philos[index].all = all;
+		philos[index].think_time = set_think_time(param);
 		philos[index].right_hand = &(forks[index]);
 		philos[index].left_hand = &(forks[(index + 1) % param->philo_count]);
-		philos[index].all = all;
+		if (index == (param->philo_count - 1))
+		{
+			philos[index].left_hand = &(forks[index]);
+			philos[index].right_hand = &(forks[(index + 1) % param->philo_count]);			
+		}
 		index++;
 	}
-	philos[index].id = (index + 1);
-	philos[index].last_meal = last_meal;
-	philos[index].left_hand = &(forks[index]);
-	philos[index].right_hand = &(forks[(index + 1) % param->philo_count]);
-	philos[index].all = all;
 	return (1);
 }
 
@@ -86,9 +99,8 @@ int	fill_structs(t_all *all, int argc, char **argv)
 		return (put_message(STDERR_FILENO,
 			"NULL pointer in fill_Structures\n", true), 0);
 	start_time = get_full_timeofday();
-	all->argc = argc;
 	all->stop = false;
-	if (!convert_argv_to_long(all->param, argc, argv, start_time))
+	if (!set_params_from_argv(all->param, argc, argv, start_time))
 			return (end_structures("Invalid number in ARGV"), 0);
 	if (!create_arrays(all, all->param->philo_count))
 			return (end_structures("Failed creating array in data_struct"), 0);

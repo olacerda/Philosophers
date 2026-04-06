@@ -6,7 +6,7 @@
 /*   By: olacerda <olacerda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 22:08:43 by otlacerd          #+#    #+#             */
-/*   Updated: 2026/04/04 06:03:20 by olacerda         ###   ########.fr       */
+/*   Updated: 2026/04/06 14:15:35 by olacerda         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,7 +17,8 @@
 
 //-data_structure.c ------------------------------------------------------------
 int     fill_structs(t_all *all, int argc, char **argv);//Fill structs
-int     convert_argv_to_long(t_params *param, int argc, char **argv, UL start_time);//Convert strings 
+UL      set_think_time(t_params *param);
+int     set_params_from_argv(t_params *param, int argc, char **argv, UL start_time);//Convert strings 
 int     create_arrays(t_all *all, UL philo_nb);//Create 'info' arrays
 int     initiate_philos(t_philo *philos, t_params *param, t_mutex *forks, t_all *all);
 
